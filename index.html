@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="logo.jpg" type="image/icon type">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    
+    <title>Covid19 statistics</title>
+        <!-- <link rel="stylesheet" href="style.css"> -->
+
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(180, 229, 241);
+        }
+
+        .box{
+            width: 560px;
+            height: 420px;
+            /* border: 0.5px solid black; */
+            font-family: 'Mukta', sans-serif;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        }
+
+        .heading{
+            width: 100%;
+            height: 95px;
+            /* border: 1px solid red; */
+            color: rgb(85, 83, 83);
+            text-align: center;
+            line-height: 95px;
+            font-size: 1.3rem;
+        }
+
+        .country{
+            width: 100%;
+            height: 160px;
+            /* border: 1px solid green; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .country label{
+            font-size: 1.4rem;
+            padding-right: 30px;
+            font-weight: 600;
+        }
+
+        .country input{
+            width: 55%;
+            height: 30px;
+            padding-left: 10px;
+            color: rgb(78, 77, 77);
+            border-radius: 8px;
+            border: 0.5px solid gray;
+            box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+        }
+
+        .box .btn{
+            width: 100%;
+            height: 60px;
+            /* border: 1px solid blueviolet; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box .btn button{
+            width: 90px;
+            height: 33px;
+            font-size: 1rem;
+            background:linear-gradient(rgb(240, 0, 92),rgb(194, 5, 5)) rgb(253, 0, 21);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+        }
+
+        .box .btn button:hover{
+            cursor: pointer;
+            width: 98px;
+            height: 35px;
+            font-size: 1.12rem;
+            background:rgb(231, 0, 39) ;
+        }
+
+        .box .para{
+            width: 100%;
+            height: 24%;
+            /* border: 3px solid yellow; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .para p{
+            font-size: 1.2rem;
+            font-family: 'Dosis', sans-serif;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }   
+
+
+        #message-box{
+            width: 590px;
+            height: 440px;
+            font-family: 'Roboto Slab', serif;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+            z-index: 2;
+        }
+
+        .message-heading{
+            width: 100%;
+            height: 85px;
+            text-align: center;
+            color: rgb(85, 83, 83);
+            line-height: 85px;
+            font-size: 1.3rem;
+        }
+
+        #message-box .inner-box{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #message-box .inner-box label{
+            font-size: 1.2rem;
+            padding-right: 30px;
+            font-weight: 500;
+            color: rgb(70, 70, 238);
+        }
+
+        #message-box .inner-box input{
+            width: 55%;
+            height: 28px;
+            padding-left: 10px;
+            color: rgb(78, 77, 77);
+            border-radius: 8px;
+            border: 0.2px solid rgb(175, 175, 175);
+            /* box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px; */
+        }
+
+        #message-box .btn{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #message-box .btn button{
+            width: 80px;
+            height: 30px;
+            font-size: 1rem;
+            background:linear-gradient(rgb(117, 240, 3),rgb(5, 100, 10)) rgb(101, 253, 0);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+        }
+
+        #message-box .btn button:hover{
+            cursor: pointer;
+            width: 88px;
+            height: 33px;
+            font-size: 1.12rem;
+            background:rgb(119, 255, 8) ;
+        }
+
+
+        @media (max-width:940px){
+            #message-box{
+                width: 520px;
+                height: 410px;
+            }
+
+            .message-heading{
+                height: 85px;
+                line-height: 85px;
+                font-size: 1.2rem;
+            }
+
+            #message-box .inner-box label{
+                font-size: 1rem;
+                padding-right: 25px;
+            }
+
+            #message-box .inner-box input{
+                width: 50%;
+                height: 25px;
+                padding-left: 8px;
+            }
+        }
+
+        @media (max-width:400px){
+            #message-box{
+                width: 510px;
+                height: 405px;
+            }
+
+            .message-heading{
+                height: 82px;
+                line-height: 82px;
+                font-size: 1.18rem;
+            }
+
+            #message-box .inner-box label{
+                font-size: 0.7rem;
+                padding-right: 22px;
+            }
+
+            #message-box .inner-box input{
+                width: 44%;
+                height: 23px;
+                padding-left: 7px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="box" id="Box">
+        <div class="heading">
+            <h1>Covid-19 Statistics</h1>
+        </div>
+
+        <div class="country">
+            <label for="">Country Name </label>
+            <input type="text" id="country-name"  placeholder="Type a country name">
+        </div>
+
+        <div class="btn">
+            <button onclick="search()">Search</button>
+        </div>
+
+        <div class="para">
+            <p>Wear marks and stay safe ! </p>
+            <div><i class="material-icons" style="margin: auto; color: rgb(100, 29, 128); font-size: 2.2rem; padding: 10px 0px 0px 10px;">masks</i></div>
+        </div>
+
+    </div>
+
+        <!-- ------ message-box ------ -->
+
+    <div id="message-box" style="display: none;">
+        <div class="message-heading">
+            <h1 id="message-heading">India</h1>
+        </div>
+
+        <div class="inner-box">
+            <label for="">Total Confirmed Cases :</label>
+            <input type="text" id="totalConfirmCase">
+        </div>
+
+        <div class="inner-box">
+            <label for="">New Confirmed Cases :</label>
+            <input type="text" id="newConfirmCase">
+        </div>
+
+        <div class="inner-box">
+            <label for="">Total Deaths  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+            <input type="text" id="totalDeath">
+        </div>
+
+        <div class="inner-box">
+            <label for="">New Deaths &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+            <input type="text" id="newDeath">
+        </div>
+
+        <div class="inner-box">
+            <label for="">Total Recovered &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+            <input type="text" id="totalRecover">
+        </div>
+
+        <div class="inner-box">
+            <label for="">New Recovered &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+            <input type="text" id="newRecover">
+        </div>
+
+        <div class="btn">
+            <button onclick="goBack()">Go Back</button>
+        </div>
+
+
+    </div>
+        <!-- ----- JavaScript ------ -->
+    <script>
+
+        const messageBox = document.getElementById('message-box');
+        const box = document.getElementById('Box');
+        const countryName = document.getElementById('country-name');
+        const heading = document.getElementById('message-heading');
+        const totalConfirmCase = document.getElementById('totalConfirmCase');
+        const newConfirmCase = document.getElementById('newConfirmCase');
+        const totalDeath = document.getElementById('totalDeath');
+        const newDeath = document.getElementById('newDeath');
+        const totalRecover = document.getElementById('totalRecover');
+        const newRecover = document.getElementById('newRecover');
+        let actualData = "";
+        const api = 'https://api.covid19api.com/summary';
+
+        const getData = async ()=>{
+            try{
+                let data = await fetch(api);
+                actualData = await data.json();
+            }
+            catch(err){}
+        };
+
+        const searchCountary = (name) =>{
+            for(var i =0 ;i<193;i++){
+                if(actualData.Countries[i].Country.toUpperCase() == countryName.value.toUpperCase()) 
+                return i;
+            }
+            return -1;
+        }
+        
+        
+        const search =()=>{
+            if(countryName.value==""){
+                alert("Please enter country name");
+            }
+            else if(!isNaN(countryName.value)){
+                alert("Please enter a valid country name");
+                countryName.value="";
+            }
+            else{
+                heading.innerHTML=countryName.value;
+                var idx = searchCountary(countryName.value);
+
+                if(idx == -1){
+                    alert("Please enter a valid countary name");
+                    countryName.value="";
+                    return;
+                }
+                box.setAttribute("style","display:none");
+                totalConfirmCase.value = actualData.Countries[idx].TotalConfirmed;
+                newConfirmCase.value = actualData.Countries[idx].NewConfirmed;
+                totalDeath.value = actualData.Countries[idx].TotalDeaths;
+                newDeath.value = actualData.Countries[idx].NewDeaths;
+                totalRecover.value = actualData.Countries[idx].TotalRecovered;
+                newRecover.value = actualData.Countries[idx].NewRecovered;
+
+
+                heading.setAttribute('style',"text-transform: capitalize;");
+                document.body.setAttribute('style',"background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), rgb(180, 229, 241);")
+                messageBox.setAttribute("style","display:block");
+                
+            }
+        }
+        getData();
+        const goBack = ()=>{
+            box.setAttribute("style","display:block");
+            messageBox.setAttribute("style","display:none");
+            document.body.setAttribute('style',"background: rgb(180, 229, 241);")
+            countryName.value="";
+        }
+
+    </script>
+    
+</body>
+</html>
+
+
+
