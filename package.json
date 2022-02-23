@@ -1,0 +1,23 @@
+{
+  "name": "covid-19-statistics",
+  "version": "1.0.0",
+  "description": "covid statistic project",
+  "main": "backend.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saurav-raj-web1999/Covid19-Statistics.git"
+  },
+  "author": "Saurav Raj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saurav-raj-web1999/Covid19-Statistics/issues"
+  },
+  "homepage": "https://github.com/saurav-raj-web1999/Covid19-Statistics#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "hbs": "^4.2.0"
+  }
+}
